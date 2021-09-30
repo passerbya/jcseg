@@ -1,7 +1,6 @@
 package org.lionsoul.jcseg.elasticsearch.plugin;
 
 import org.apache.lucene.analysis.Analyzer;
-import org.elasticsearch.common.io.PathUtils;
 import org.elasticsearch.index.analysis.AnalyzerProvider;
 import org.elasticsearch.index.analysis.TokenFilterFactory;
 import org.elasticsearch.index.analysis.TokenizerFactory;
@@ -25,6 +24,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -71,7 +71,7 @@ public class AnalysisJcsegPlugin extends Plugin implements AnalysisPlugin
      * @param   file
      */
     private static final String pluginBase = AnalysisJcsegPlugin.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-    private static final Path safePath = PathUtils.get(new File(pluginBase).getParent()).toAbsolutePath();
+    private static final Path safePath = Paths.get(new File(pluginBase).getParentFile().getAbsoluteFile().toURI());
     public static final File getPluginSafeFile(String file)
     {
         return safePath.resolve(file).toFile();
