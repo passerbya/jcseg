@@ -234,9 +234,9 @@ public class SegmenterConfig implements Cloneable, Serializable
     public void load( InputStream is ) throws IOException
     {
         Properties lexPro = new Properties();
-	try (BufferedInputStream bis = new BufferedInputStream(is)) {
-		lexPro.load(bis);
-	}
+        try (BufferedInputStream bis = new BufferedInputStream(is)) {
+        	lexPro.load(bis);
+        }
         
         
         for ( java.util.Map.Entry<Object, Object> entry : lexPro.entrySet() ) {
