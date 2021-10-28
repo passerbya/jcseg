@@ -188,14 +188,14 @@ public class SegmenterConfig implements Cloneable, Serializable
     public void autoLoad() throws IOException 
     {
         // Load from system property "jcseg.home".
-        proFile = new File(System.getProperty("jcseg.home")+"/"+LEX_PROPERTY_FILE);
+        File proFile = new File(System.getProperty("jcseg.home")+"/"+LEX_PROPERTY_FILE);
         if ( proFile.exists() ) {
             pFile = proFile.getAbsolutePath();
             load(proFile.getAbsolutePath());
         }
 	
     	// Try load the file from beside jcseg-core-{version}.jar.
-        File proFile = new File(Util.getJarHome(this)+"/"+LEX_PROPERTY_FILE);
+        proFile = new File(Util.getJarHome(this)+"/"+LEX_PROPERTY_FILE);
         if ( proFile.exists() ) {
             pFile = proFile.getAbsolutePath();
             load(proFile.getAbsolutePath());
